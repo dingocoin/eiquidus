@@ -5,6 +5,9 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1')
     meta(http-equiv='Content-Language', content='en')
     title=(page_title_prefix == null || page_title_prefix == '' ? settings.locale.error_title.replace('{1}', settings.coin.name) : page_title_prefix) + ' - ' + settings.shared_pages.page_title
+    meta(name='description' content=settings.shared_pages.head_description)
+    meta(name='author' content=settings.shared_pages.head_author)
+    meta(name='keywords' content=settings.shared_pages.head_keywords)
     if settings.shared_pages.favicons.favicon32 != ''
       link(rel='icon', href='/' + settings.shared_pages.favicons.favicon32, sizes='32x32')
     if settings.shared_pages.favicons.favicon128 != ''

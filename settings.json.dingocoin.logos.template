@@ -10,11 +10,11 @@
   // dbsettings: a collection of settings that allow the explorer to connect to MongoDB
   "dbsettings": {
     // user: The MongoDB username
-    "user": "eiquidus",
+    "user": "mongouser",
     // password: The MongoDB password
-    "password": "xxxxx",
+    "password": "mongopasswd",
     // database: The MongoDB database name (default: explorerdb)
-    "database": "explorerdb",
+    "database": "dingodatabasename",
     // address: The MongoDB hostname. This should always be 'localhost' if connecting to a local instance, otherwise specify the ip address of a remote instance
     "address": "localhost",
     // port: The port # that MongoDB is configured to listen for requests on (default: 27017)
@@ -26,18 +26,18 @@
     // host: The hostname or ip address of the wallet to connect to (default: localhost)
     "host": "localhost",
     // port: The port # that the wallet is configured to listen for RPC requests on (default: 51573 for Exor wallet)
-    "port": 3456,
+    "port": 34646,
     // username: The wallet RPC username
-    "username": "dingorpc",
+    "username": "dingorpcuser",
     // password: The wallet RPC password
-    "password": "yyyyy"
+    "password": "dingorpcpasswd"
   },
 
   // webserver: a collection of settings that pertain to the node.js express web framework (read more: https://www.npmjs.com/package/express)
   "webserver": {
     // port: Port # to configure the express webserver to listen for http requests on
     //       NOTE: Be sure to configure firewalls to allow traffic through this port or the explorer website may not be accessible remotely
-    "port": 3001,
+    "port": 3002,
     // tls: a collection of settings that pertain to the TLS (Transport Layer Security) protocol feature (aka: ssl or https)
     "tls": {
       // enabled: Enable/disable TLS
@@ -48,11 +48,11 @@
       //       NOTE: Be sure to configure firewalls to allow traffic through this port or the explorer website may not be accessible remotely
       "port": 443,
       // cert_file: The absolute or relative path to the tls certificate file. Typically this file will be generated from certbot (read more: https://certbot.eff.org)
-      "cert_file": "/etc/letsencrypt/live/domain-name-here/cert.pem",
+      "cert_file": "/etc/letsencrypt/live/explorer.dingocoin.org/cert.pem",
       // chain_file: The absolute or relative path to the tls chain file. Typically this file will be generated from certbot (read more: https://certbot.eff.org)
-      "chain_file": "/etc/letsencrypt/live/domain-name-here/chain.pem",
+      "chain_file": "/etc/letsencrypt/live/explorer.dingocoin.org/chain.pem",
       // key_file: The absolute or relative path to the tls private key file. Typically this file will be generated from certbot (read more: https://certbot.eff.org)
-      "key_file": "/etc/letsencrypt/live/domain-name-here/privkey.pem"
+      "key_file": "/etc/letsencrypt/live/explorer.dingocoin.org/privkey.pem"
     },
     // cors: a collection of settings that pertain to the cors feature
     //       Cross-Origin Resource Sharing (CORS) support (read more: https://www.maxcdn.com/one/visual-glossary/cors/)
@@ -94,9 +94,17 @@
     // theme: Change the look & feel of the explorer with a unique theme. Uses bootswatch themes (https://bootswatch.com)
     //        Valid options: Cerulean, Cosmo, Cyborg, Darkly, Exor, Flatly, Journal, Litera, Lumen, Lux, Materia, Minty, Morph, Pulse, Quartz, Sandstone, Simplex, Sketchy, Slate, Solar, Spacelab, Superhero, United, Vapor, Yeti, Zephyr
     //        (see /public/css/themes for available themes)
-    "theme": "Cyborg",
+    "theme": "Dingo",
     // page_title: The text to display at the end of the HTML title tag and also displayed in the page header when the "shared_pages.page_header.home_link" setting is set to "title"
     "page_title": "eIquidus",
+    // meta tags:
+    // basic SEO data: description, author, keywords
+    // more meta tags related to X, fb etc can be added here
+    // any meta tag is to be implemented in settings.json, lib/settings.js and in views/layout.pug
+    // 3 places to care about - just repeat the pattern
+    "head_description": "Dingocoin Block Explorer. Information on all Dingocoin transactions and blocks.",
+    "head_author": "Various authors listed in file LICENSE (located on code root). Dingocoin specific settings added by Dingocoin Project.",
+    "head_keywords": "Block, Explorer, Of, Dingocoin, Such, a, Wild, Doge",
     // favicons: a collection of image or icon files that are displayed in a browser window/tab and serve as branding for your website. Their main purpose is to help visitors locate your page easier when they have multiple tabs open
     //          Modern favicon sizes were inspired by this web article: https://www.emergeinteractive.com/insights/detail/The-Essentials-of-FavIcons/
     //          NOTE: If any of the favicons are left blank or not set to a valid file, they will be disabled and unused
@@ -141,7 +149,7 @@
     //                if confirms are >= to this value then the block or tx is considered valid and shows up in green
     //                if confirms are < this value by more than 50% then the block or tx is considered unconfirmed and shows up in red
     //                if confirms are < this value by less than 50% then the block or tx is considered unconfirmed and shows up in orange
-    "confirmations": 40,
+    "confirmations": 120,
     // difficulty: Determine which network difficulty value to display (valid options are: POW, POS or Hybrid)
     //             Some blockchains show different difficulty values depending on available POW/POS options:
     //             POW: Display the proof-of-work difficulty value
@@ -156,7 +164,7 @@
       // menu: Valid options:
       //       top: display menu items horizontally across the top of the page
       //       side: display menu items vertically across the left-hand side of the page
-      "menu": "side",
+      "menu": "top",
       // sticky_header: Determine whether page header "sticks" to top of page or not (true/false)
       "sticky_header": true,
       // bgcolor: Change the background color of the page header
@@ -291,15 +299,15 @@
           // bgcolor: Change the background color of the network hashrate chart
           //          Set this to any valid html color
           //          Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "bgcolor": "#ffffff",
+          "bgcolor": "#fcf7e9",
           // line_color: Change the line color of the network hashrate chart
           //             Set this to any valid html color
           //             Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "line_color": "rgba(54, 162, 235, 1)",
+          "line_color": "rgba(30, 65, 81, 1)",
           // fill_color: Change the fill color of the network hashrate chart
           //             Set this to any valid html color
           //             Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "fill_color": "rgba(54, 162, 235, 0.2)",
+          "fill_color": "rgba(121, 157, 174, 0.7)",
           // crosshair_color: Change the vertical crosshair line color of the network hashrate chart
           //             Set this to any valid html color
           //             Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
@@ -316,15 +324,15 @@
           // bgcolor: Change the background color of the network difficulty chart
           //          Set this to any valid html color
           //          Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "bgcolor": "#ffffff",
+          "bgcolor": "#fcf7e9",
           // pow_line_color: Change the line color of the network difficulty chart for POW coins
           //                 Set this to any valid html color
           //                 Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "pow_line_color": "rgba(255, 99, 132, 1)",
+          "pow_line_color": "rgba(0, 41, 135, 1)",
           // pow_fill_color: Change the fill color of the network difficulty chart for POW coins
           //                 Set this to any valid html color
           //                 Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
-          "pow_fill_color": "rgba(255, 99, 132, 0.2)",
+          "pow_fill_color": "rgba(100, 133, 207, 0.7)",
           // pos_line_color: Change the line color of the network difficulty chart for POS coins
           //                 Set this to any valid html color
           //                 Ex: "#ffffff" or "rgba(255, 255, 255, 1)" or "white"
@@ -375,26 +383,12 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Github
           "tooltip_text": "Github",
           // url: The exact url that the social link should navigate to
-          "url": "https://github.com/dingocoin",
+          "url": "https://github.com/dingocoin/",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
-          "fontawesome_class": "fab fa-github",
+          "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
           //             NOTE: The path root is /public
-          "image_path": ""
-        },
-        {
-          // enabled: Enable/disable this particular social link (true/false)
-          //          If set to false, the link will be completely inaccessible
-          "enabled": true,
-          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Twitter
-          "tooltip_text": "Twitter",
-          // url: The exact url that the social link should navigate to
-          "url": "https://twitter.com/dingocoincrypto",
-          // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
-          "fontawesome_class": "fab fa-twitter",
-          // image_path: The path to an image file that will be displayed for this social link
-          //             NOTE: The path root is /public
-          "image_path": ""
+          "image_path": "/img/github_image.png"
         },
         {
           // enabled: Enable/disable this particular social link (true/false)
@@ -405,10 +399,24 @@
           // url: The exact url that the social link should navigate to
           "url": "https://discord.gg/y3J946HFQM",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
-          "fontawesome_class": "fab fa-discord",
+          "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
           //             NOTE: The path root is /public
-          "image_path": ""
+          "image_path": "/img/discord_image.png"
+        },
+        {
+          // enabled: Enable/disable this particular social link (true/false)
+          //          If set to false, the link will be completely inaccessible
+          "enabled": true,
+          // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Twitter
+          "tooltip_text": "X",
+          // url: The exact url that the social link should navigate to
+          "url": "https://twitter.com/dingocoincrypto",
+          // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
+          "fontawesome_class": "",
+          // image_path: The path to an image file that will be displayed for this social link
+          //             NOTE: The path root is /public
+          "image_path": "/img/x_image.png"
         },
         {
           // enabled: Enable/disable this particular social link (true/false)
@@ -419,10 +427,10 @@
           // url: The exact url that the social link should navigate to
           "url": "https://t.me/DingoCoinTalk",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
-          "fontawesome_class": "fab fa-telegram",
+          "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
           //             NOTE: The path root is /public
-          "image_path": ""
+          "image_path": "/img/telegram_image.png"
         },
         {
           // enabled: Enable/disable this particular social link (true/false)
@@ -431,7 +439,7 @@
           // tooltip_text: Social link tooltips are always prefixed by the "coin.name" setting followed by the text from this tooltip_text setting. Ex: Exor Website
           "tooltip_text": "Website",
           // url: The exact url that the social link should navigate to
-          "url": "https://dingocoin.org",
+          "url": "https://dingocoin.com",
           // fontawesome_class: A string of css classes, separated by spaces that can be used to display a fontawesome icon for this social link. See https://fontawesome.com/ for more info
           "fontawesome_class": "",
           // image_path: The path to an image file that will be displayed for this social link
@@ -676,11 +684,11 @@
       //                       Set to 0 to disable automatic reloading of table data
       "reload_table_seconds": 45,
       // min_amount: The minimum number of coins that need to be received in a single transaction to show up on the movement page
-      "min_amount": 5000,
+      "min_amount": 1000000,
       // low low_warning_flag: Flag all transactions in yellow/orange that are sent with coin amounts above this value
-      "low_warning_flag": 50000,
+      "low_warning_flag": 20000000,
       // high_warning_flag: Flag all transactions in red that are sent with coin amounts above this value
-      "high_warning_flag": 100000
+      "high_warning_flag": 100000000
     }
   },
 
@@ -1024,18 +1032,18 @@
     "sample_data": {
       // blockindex: This value can be any valid block height number from your coins blockchain
       //             NOTE: This value is only used to build example api links on the api page from the /api/getblockhash api for example
-      "blockindex": 1035585,
+      "blockindex": 74,
       // blockhash: This value can be any valid block hash from your coins blockchain
       //            For many bitcoin clones you can use the following cmd to get the block hash for a given block height: coin-cli getblockhash 64152
       //            NOTE: This value is only used to build example api links on the api page from the /api/getblock api for example
-      "blockhash": "5e72baf180b6bdfbb2919de8a167d1725d9eb535e41608334fd74edec46347e1",
+      "blockhash": "a5844985ab33caf700129da5f5ab0a30a3fa0cc6f9e5620e9990644ec5e2f432",
       // txhash: This value can be any valid transaction hash from your coins blockchain
       //         For many bitcoin clones you can use the following cmd to find a list of tx hashes for a given block hash: coin-cli getblock 000000001ba119a0f6d49ebabd83343b125d7ee3d3184b1b41d6a7f2051153eb
       //         NOTE: This value is only used to build example api links on the api page from the /api/getrawtransaction api for example
-      "txhash": "a1e72f68655ada7297019aff5eb87ef5fd7380a1264498c58c7f5d2843837301",
+      "txhash": "56b9279421821cc02c5c8ba6669082379f09b869322955e4cbbd1cccec5453ef",
       // address: This value can be any valid wallet address from your coins blockchain that has received at least 1 or more coin transactions
       //          NOTE: This value is only used to build example api links on the api page from the /ext/getaddress api for example
-      "address": "D6P9RZhTvWiDHLsnB5QkCHijFAPkeX511d"
+      "address": "DCsHqkKHNNb9AmG1P4jU5vde2kuptxNhoY"
     },
     // public_apis: a collection of settings that pertain to the public api command system
     //              NOTE: Disabling any of these apis will remove the api definition from the api page and will return a "This method is disabled" msg if the api endpoint is called.
@@ -1243,7 +1251,7 @@
     // enabled: Enable/disable the ability for users to claim a wallet address (true/false)
     //          If set to false, the claim page will be completely inaccessible
     //          NOTE: Disabling this feature after addresses have already been claimed will effectively hide the claimed values and restore the original wallet addresses again
-    "enabled": true,
+    "enabled": false,
     // show_panels: Determine whether to show the panels configured in the shared_pages.page_header section across the top of this page (true/false)
     "show_panels": false,
     // show_nethash_chart: Determine whether to show the network hashrate chart configured in the shared_pages.network_charts.nethash_chart section across the top of this page (true/false)
@@ -1277,7 +1285,7 @@
     // update_timeout: The amount of time to wait (in milliseconds) before moving to the next block or transaction during blockchain sync or reindex (/path/to/node scripts/sync.js update or /path/to/node scripts/sync.js reindex)
     "update_timeout": 10,
     // check_timeout: The amount of time to wait (in milliseconds) before moving to the next block or transaction during a check sync (/path/to/node scripts/sync.js check)
-    "check_timeout": 250,
+    "check_timeout": 350,
     // save_stats_after_sync_blocks: During index syncronization, stats are saved after processing this many blocks to save time by not having to save after each block
     "save_stats_after_sync_blocks": 100,
     // show_sync_msg_when_syncing_more_than_blocks: Show the sync msg at the top of all pages during index syncronization if there are more than this many blocks to process
@@ -1291,13 +1299,27 @@
     //         HEAVY: retrieved from getsupply rpc cmd (The "blockchain_specific.heavycoin.enabled" setting must be set to true and the "blockchain_specific.heavycoin.api_cmds.getsupply" setting must be set up correctly for this option to work properly)
     //         BALANCES : get the supply by running a query on the addresses collection and summing up all positive balances (potentially a long running query for blockchains with tons of addresses)
     //         TXOUTSET : retrieved from gettxoutsetinfo rpc cmd
-    "supply": "GETINFO"
+    "supply": "COINBASE"
   },
 
   // labels: a collection of settings that pertain to the list of customized wallet address labels
   //         Adding entries to this section will display a custom label beside each affected wallet address when displayed in the explorer
   //         NOTE: You can add as many address labels as desired
   "labels": {
+    "DEsE6HhSufHTzbVemJ8z6nFtzx3mcVTmFn": {
+      "enabled": true,
+      "label": "XT",
+      "type": "success",
+      "url": "https://explorer.dingocoin.com/address/DEsE6HhSufHTzbVemJ8z6nFtzx3mcVTmFn"
+    },
+    "9sD6EdKD5aM8LDnnPp8A834hDb6KQphXBH": {
+      "enabled": true,
+      "label": "wDingo-BSC",
+      "type": "success",
+      "url": "https://explorer.dingocoin.com/address/9sD6EdKD5aM8LDnnPp8A834hDb6KQphXBH"
+    },
+    // A collection of settings that pertain to the EXorBurnAddressXXXXXXXXXXXXXW7cDZQ wallet address
+    // NOTE: Change this value to the wallet address that you would like to set a custom label on
     // A collection of settings that pertain to the EJ6yc47cAZMGWHFccc9gfGbDLYuyNhP6wL wallet address
     // NOTE: Change this value to the wallet address that you would like to set a custom label on
     "EJ6yc47cAZMGWHFccc9gfGbDLYuyNhP6wL": {
